@@ -23,7 +23,7 @@ class UserServiceTest {
     @Test
     public void testAddUser(){
         User user = new User();
-        user.setUsername("dogYupi");
+        user.setUsername("dogLizh");
         user.setUserAccount("123");
         user.setAvatarUrl("");
         user.setGender(0);
@@ -37,23 +37,23 @@ class UserServiceTest {
 
     @Test
     void userRegister() {
-        String userAccount = "yupi";
+        String userAccount = "lizh";
         String userPassword ="";
         String checkPassword = "12345678";
         String planetCode = "1";
         long result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
 
-        userAccount = "yu";
+        userAccount = "li";
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
 
-        userAccount = "yupi";
+        userAccount = "lizh";
         userPassword = "123456";
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
 
-        userAccount = "yu pi";
+        userAccount = "li zh";
         userPassword = "12345678";
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
@@ -62,12 +62,12 @@ class UserServiceTest {
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
 
-        userAccount = "dogYupi";
+        userAccount = "dogLizh";
         checkPassword = "12345678";
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertEquals(-1,result);
 
-        userAccount = "yupi";
+        userAccount = "lizh";
         result = userService.userRegister(userAccount, userPassword, checkPassword,planetCode);
         Assertions.assertTrue(result > 0);
     }
