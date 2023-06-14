@@ -8,6 +8,7 @@ create table user
     avatarUrl    varchar(1024)                      null comment '用户头像',
     gender       tinyint                            null comment '性别',
     userPassword varchar(512)                       not null comment '密码',
+    profile      varchar(512)                       null comment '个人介绍',
     phone        varchar(128)                       null comment '电话',
     email        varchar(512)                       null comment '邮箱',
     userStatus   int      default 0                 not null comment '状态 0 - 正常',
@@ -15,7 +16,8 @@ create table user
     updateTime   datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete     tinyint  default 0                 not null,
     userRole     int      default 0                 not null comment '用户角色 0 - 普通用户 1 - 管理员',
-    planetCode   varchar(512)                       null comment '星球编号'
+    planetCode   varchar(512)                       null comment '星球编号',
+    tags         varchar(1024)                      null comment '标签列表 json 字段'
 )
     comment '用户';
 
