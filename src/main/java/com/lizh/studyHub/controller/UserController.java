@@ -1,15 +1,15 @@
 package com.lizh.studyHub.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lizh.studyHub.common.BaseResponse;
 import com.lizh.studyHub.common.ErrorCode;
 import com.lizh.studyHub.common.ResultUtils;
 import com.lizh.studyHub.exception.BusinessException;
+import com.lizh.studyHub.model.VO.UserVO;
 import com.lizh.studyHub.model.domain.User;
-import com.lizh.studyHub.model.domain.request.UserLoginRequest;
-import com.lizh.studyHub.model.domain.request.UserRegisterRequest;
+import com.lizh.studyHub.model.request.UserLoginRequest;
+import com.lizh.studyHub.model.request.UserRegisterRequest;
 import com.lizh.studyHub.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static com.lizh.studyHub.contant.UserContant.ADMIN_ROLE;
 import static com.lizh.studyHub.contant.UserContant.USER_LOGIN_STATE;
 
 /**
@@ -177,4 +176,19 @@ public class UserController {
         return ResultUtils.success(b);
     }
 
+
+    /**
+     * 获取最匹配的用户
+     * @param num
+     * @param request
+     * @return
+     */
+    @GetMapping("/match")
+    public BaseResponse<List<User>> matchUsers(long num, HttpServletRequest request){
+        if (num <= 0 || num > 20){
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User user = userService.getLoginUser(request);
+        return ResultUtils.success(userService.matchUsers(num,user));
+    }
 }

@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.DigestUtils;
 
 @SpringBootTest
-class UserCenterApplicationTests {
+class MyApplicationTests {
 
     @Test
     public void testDigest(){

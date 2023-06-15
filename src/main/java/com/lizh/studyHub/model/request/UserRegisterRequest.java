@@ -1,4 +1,4 @@
-package com.lizh.studyHub.model.domain.request;
+package com.lizh.studyHub.model.request;
 
 /**
  * This class is for xxxx.

@@ -1,5 +1,6 @@
 package com.lizh.studyHub.service;
 
+import com.lizh.studyHub.model.VO.UserVO;
 import com.lizh.studyHub.model.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -81,4 +82,12 @@ public interface UserService extends IService<User> {
     boolean isAdmin(HttpServletRequest request);
 
     boolean isAdmin(User loginUer);
+
+    /**
+     * 匹配用户
+     * @param num
+     * @param user
+     * @return
+     */
+    List<User> matchUsers(long num, User user);
 }

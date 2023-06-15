@@ -2,13 +2,13 @@ spring:
   profiles:
     active: dev
   application:
-    name:user-centor-backend
+    name:studyHub-backend
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/lizh?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: root
+    password: password
   #session失效时间
   session:
     timeout: 86400
